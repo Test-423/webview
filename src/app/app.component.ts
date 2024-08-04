@@ -41,4 +41,15 @@ export class AppComponent implements AfterViewInit{
       const { documentViewer} = instance.Core;
       instance.UI.setLayoutMode(instance.UI.LayoutMode.Single);
 
+      instance.UI.addEventListener(instance.UI.Events.FILE_DOWNLOADED, () => {
+        console.log(documentViewer.getAnnotationManager().getAnnotationsList().map(object=> {
+          return {
+            type: object.Subject,
+            page: object.PageNumber,
+            value: object.getContents(),
+            originalValue: object
+          }
+        }))
+      });
+
 }
