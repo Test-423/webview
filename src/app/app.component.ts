@@ -22,8 +22,6 @@ export interface DocumentPage {
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'WebView';
 export class AppComponent implements AfterViewInit{
   @ViewChild('viewer') viewerRef!: ElementRef;
 
